@@ -33,7 +33,7 @@ variable "whitelist" {
   description = "Instance types allowed in the Ocean cluster."
 }
 variable "draining_timeout" {
-  default     = null
+  default     = 120
   type        = number
   description = "The draining timeout (in seconds) before terminating the instance."
 }
