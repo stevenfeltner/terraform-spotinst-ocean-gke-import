@@ -13,7 +13,7 @@ variable "controller_cluster_id" {
   description = "A unique identifier used for connecting the Ocean SaaS platform and the Kubernetes cluster. Typically, the cluster name is used as its identifier."
 }
 variable "desired_capacity" {
-  default     = null
+  default     = 1
   type        = number
   description = "The number of instances to launch and maintain in the cluster."
 }
@@ -38,7 +38,7 @@ variable "draining_timeout" {
   description = "The draining timeout (in seconds) before terminating the instance."
 }
 variable "root_volume_type" {
-  default     = null
+  default     = "pd-standard"
   type        = string
   description = "The root volume disk type"
 }
@@ -62,12 +62,12 @@ variable "backend_service" {
 ## shielded_instance_config ##
 variable "enable_integrity_monitoring" {
   type = bool
-  default = null
+  default = false
   description = "Enable the integrity monitoring parameter on the GCP instances."
 }
 variable "enable_secure_boot" {
   type = bool
-  default = null
+  default = false
   description = "Enable the secure boot parameter on the GCP instances."
 }
 #################
@@ -90,34 +90,34 @@ variable "auto_headroom_percentage" {
 }
 variable "autoscale_cooldown" {
   type        = number
-  default     = null
+  default     = 5
   description = "Cooldown period between scaling actions."
 }
 variable "enable_automatic_and_manual_headroom" {
   type        = bool
-  default     = null
+  default     = false
   description = "enables automatic and manual headroom to work in parallel. When set to false, automatic headroom overrides all other headroom definitions manually configured, whether they are at cluster or VNG level."
 }
 
 ## autoscale_headroom ##
 variable "cpu_per_unit" {
   type        = number
-  default     = null
+  default     = 0
   description = "Optionally configure the number of CPUs to allocate the headroom. CPUs are denoted in millicores, where 1000 millicores = 1 vCPU."
 }
 variable "gpu_per_unit" {
   type        = number
-  default     = null
+  default     = 0
   description = "Optionally configure the number of GPUs to allocate the headroom."
 }
 variable "memory_per_unit" {
   type        = number
-  default     = null
+  default     = 0
   description = "Optionally configure the amount of memory (MB) to allocate the headroom."
 }
 variable "num_of_unit" {
   type        = number
-  default     = null
+  default     = 0
   description = "The number of units to retain as headroom, where each unit has the defined headroom CPU and memory."
 }
 ## autoscale_down ##
