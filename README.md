@@ -1,5 +1,5 @@
 # terraform-spotinst-ocean-gke-import
-Terraform module for Spotinst provider resource spotinst_ocean_gke_launch_spec
+Terraform module for Spotinst provider resource spotinst_ocean_gke_import
 
 ## Prerequisites
 
@@ -52,7 +52,6 @@ module "ocean-controller" {
 
 ## Usage
 ```hcl
-### Spot Ocean resource - Create the Ocean Cluster ###
 module "ocean-gke-import" {
   source = "stevenfeltner/ocean-gke-import/spotinst"
 
@@ -76,7 +75,6 @@ module "ocean-gke-import" {
 * `ocean-gke-import` - Creates Ocean Cluster
 * `ocean-controller` - Create and installs Spot Ocean controller pod [Doc](https://registry.terraform.io/modules/spotinst/ocean-controller/spotinst/latest)
 * `ocean-gke-launchspec` - (Optional) Add custom virtual node groups with custom configs [Doc](https://registry.terraform.io/modules/stevenfeltner/ocean-gke-launchspec/spotinst/latest)
-* `ocean-gke-launchspec-import` - (Optional) Import all GKE node pools into Ocean virtual node groups [Doc](https://registry.terraform.io/modules/stevenfeltner/ocean-gke-launchspec-import/spotinst/latest)
 
 ## Documentation
 

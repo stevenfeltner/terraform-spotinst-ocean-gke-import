@@ -42,11 +42,18 @@ resource "spotinst_ocean_gke_import" "ocean" {
     down {
       evaluation_periods                  = var.max_scale_down_percentage
     }
-    resource_limits {
-      max_vcpu                            = var.max_vcpu
-      max_memory_gib                      = var.max_memory_gib
+    dynamic "resource_limits" {
+      for_each = (
+      var.max_vcpu != null &&
+      var.max_memory_gib != null
+      ) ? [1] : []
+      content {
+        max_vcpu       = var.max_vcpu
+        max_memory_gib = var.max_memory_gib
+      }
     }
   }
+
 
   strategy {
     provisioning_model                    = var.provisioning_model

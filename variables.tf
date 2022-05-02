@@ -90,7 +90,7 @@ variable "auto_headroom_percentage" {
 }
 variable "autoscale_cooldown" {
   type        = number
-  default     = 5
+  default     = 300
   description = "Cooldown period between scaling actions."
 }
 variable "enable_automatic_and_manual_headroom" {
@@ -123,18 +123,18 @@ variable "num_of_unit" {
 ## autoscale_down ##
 variable "max_scale_down_percentage" {
   type        = number
-  default     = 10
+  default     = null
   description = "Would represent the maximum % to scale-down. Number between 1-100."
 }
 ## resource_limits ##
 variable "max_vcpu" {
   type        = number
-  default     = 20000
+  default     = null
   description = "The maximum cpu in vCPU units that can be allocated to the cluster."
 }
 variable "max_memory_gib" {
   type        = number
-  default     = 100000
+  default     = null
   description = "The maximum memory in GiB units that can be allocated to the cluster."
 }
 ##########################
@@ -147,7 +147,7 @@ variable "provisioning_model" {
 }
 variable "preemptible_percentage" {
   type        = number
-  default     = 100
+  default     = null
   description = "Defines the desired preemptible percentage for the cluster."
 }
 ##########################
